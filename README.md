@@ -17,14 +17,14 @@ The Toto Design System ensures brand consistency and improves developer experien
 ### Installation
 
 ```bash
-npm install @toto/dx
+npm install toto-dx
 ```
 
 ### Basic Usage
 
 ```tsx
-import { Button, TotoLogo, Card } from '@toto/dx';
-import '@toto/dx/dist/styles.css';
+import { Button, TotoLogo, Card } from 'toto-dx';
+import 'toto-dx/dist/styles.css';
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 {
-  "name": "@toto/dx",
+  "name": "toto-dx",
   "version": "1.0.0",
   "description": "Toto Design System - Unified components, styles, and design tokens for the Toto ecosystem",
   "type": "module",
