@@ -506,7 +506,48 @@ type ShadowPreset = keyof typeof shadowPresets;
  */
 
 declare const designTokens: {
-    readonly colors: any;
+    readonly '--toto-shadow-sm': "0 1px 2px 0 rgb(0 0 0 / 0.05)";
+    readonly '--toto-shadow-md': "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)";
+    readonly '--toto-shadow-lg': "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)";
+    readonly '--toto-shadow-xl': "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)";
+    readonly '--toto-border-radius-sm': "0.25rem";
+    readonly '--toto-border-radius-md': "0.5rem";
+    readonly '--toto-border-radius-lg': "0.75rem";
+    readonly '--toto-border-radius-pill': "999px";
+    readonly '--toto-spacing-xs': "0.5rem";
+    readonly '--toto-spacing-sm': "1rem";
+    readonly '--toto-spacing-md': "1.5rem";
+    readonly '--toto-spacing-lg': "2rem";
+    readonly '--toto-spacing-xl': "2.5rem";
+    readonly '--toto-spacing-xxs': "0.25rem";
+    readonly '--toto-font-family-sans': string;
+    readonly '--toto-font-family-heading': string;
+    readonly '--toto-font-family-mono': string;
+    readonly '--toto-font-size-base': "1rem";
+    readonly '--toto-font-size-h1': "2.5rem";
+    readonly '--toto-font-size-h2': "2rem";
+    readonly '--toto-font-size-h3': "1.5rem";
+    readonly '--toto-font-size-h4': "1.25rem";
+    readonly '--toto-font-size-body': "1rem";
+    readonly '--toto-font-size-small': "0.875rem";
+    readonly '--toto-font-size-caption': "0.75rem";
+    readonly '--toto-font-weight-regular': "400";
+    readonly '--toto-font-weight-semibold': "600";
+    readonly '--toto-font-weight-bold': "700";
+    readonly '--toto-primary': "#FDB813";
+    readonly '--toto-primary-hover': "#e6a811";
+    readonly '--toto-secondary': "#5CB85C";
+    readonly '--toto-secondary-hover': "#4fa04f";
+    readonly '--toto-accent': "#337AB7";
+    readonly '--toto-accent-hover': "#2d6da3";
+    readonly '--toto-neutral-dark': "#333333";
+    readonly '--toto-neutral-medium': "#777777";
+    readonly '--toto-neutral-light': "#F5F5F5";
+    readonly '--toto-background': "#FFFFFF";
+    readonly '--toto-error': "#D9534F";
+    readonly '--toto-success': "#22c55e";
+    readonly '--toto-warning': "#f59e0b";
+    readonly '--toto-info': "#3b82f6";
 };
 
 /**
@@ -521,8 +562,6 @@ interface TotoLogoProps {
     color?: string;
     /** Additional CSS classes */
     className?: string;
-    /** Logo variant */
-    variant?: 'default' | 'minimal' | 'text';
     /** Alt text for accessibility */
     alt?: string;
 }
@@ -534,6 +573,10 @@ declare const buttonVariants: (props?: ({
 } & class_variance_authority_dist_types.ClassProp) | undefined) => string;
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
     asChild?: boolean;
+    /** Loading state */
+    loading?: boolean;
+    /** Loading text */
+    loadingText?: string;
 }
 declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 
@@ -551,11 +594,330 @@ declare const CardFooter: React.ForwardRefExoticComponent<React.HTMLAttributes<H
 //# sourceMappingURL=Card.d.ts.map
 
 /**
+ * Input Component
+ * Unified input component for the entire Toto ecosystem
+ */
+
+interface InputProps extends Omit<React__default.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+    /** Input variant */
+    variant?: 'default' | 'filled' | 'outline';
+    /** Input size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Error state */
+    error?: boolean;
+    /** Success state */
+    success?: boolean;
+    /** Disabled state */
+    disabled?: boolean;
+    /** Helper text */
+    helperText?: string;
+    /** Error message */
+    errorMessage?: string;
+    /** Label */
+    label?: string;
+}
+declare const Input: React__default.ForwardRefExoticComponent<InputProps & React__default.RefAttributes<HTMLInputElement>>;
+
+/**
+ * Badge Component
+ * Unified badge component for the entire Toto ecosystem
+ */
+
+interface BadgeProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Badge variant */
+    variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'success' | 'warning' | 'info';
+    /** Badge size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Dismissible badge */
+    dismissible?: boolean;
+    /** Callback when badge is dismissed */
+    onDismiss?: () => void;
+}
+declare const Badge: React__default.ForwardRefExoticComponent<BadgeProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Label Component
+ * Unified label component for the entire Toto ecosystem
+ */
+
+interface LabelProps extends React__default.LabelHTMLAttributes<HTMLLabelElement> {
+    /** Label variant */
+    variant?: 'default' | 'required' | 'optional';
+    /** Label size */
+    size?: 'sm' | 'md' | 'lg';
+}
+declare const Label: React__default.ForwardRefExoticComponent<LabelProps & React__default.RefAttributes<HTMLLabelElement>>;
+
+/**
+ * Textarea Component
+ * Unified textarea component for the entire Toto ecosystem
+ */
+
+interface TextareaProps extends React__default.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    /** Textarea variant */
+    variant?: 'default' | 'filled' | 'outline';
+    /** Textarea size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Error state */
+    error?: boolean;
+    /** Success state */
+    success?: boolean;
+    /** Disabled state */
+    disabled?: boolean;
+    /** Resize behavior */
+    resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+    /** Helper text */
+    helperText?: string;
+    /** Error message */
+    errorMessage?: string;
+    /** Label */
+    label?: string;
+    /** Show character count */
+    showCharacterCount?: boolean;
+    /** Maximum character count */
+    maxLength?: number;
+}
+declare const Textarea: React__default.ForwardRefExoticComponent<TextareaProps & React__default.RefAttributes<HTMLTextAreaElement>>;
+
+/**
+ * Dialog Component
+ * Unified dialog component for the entire Toto ecosystem
+ */
+
+interface DialogProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Whether the dialog is open */
+    open?: boolean;
+    /** Callback when dialog should close */
+    onOpenChange?: (open: boolean) => void;
+    /** Dialog variant */
+    variant?: 'default' | 'centered' | 'fullscreen';
+    /** Dialog size */
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+interface DialogContentProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Content variant */
+    variant?: 'default' | 'centered' | 'fullscreen';
+    /** Content size */
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+interface DialogHeaderProps extends React__default.HTMLAttributes<HTMLDivElement> {
+}
+interface DialogTitleProps extends React__default.HTMLAttributes<HTMLHeadingElement> {
+}
+interface DialogDescriptionProps extends React__default.HTMLAttributes<HTMLParagraphElement> {
+}
+interface DialogFooterProps extends React__default.HTMLAttributes<HTMLDivElement> {
+}
+declare const Dialog: React__default.FC<DialogProps>;
+declare const DialogContent: React__default.ForwardRefExoticComponent<DialogContentProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const DialogHeader: React__default.ForwardRefExoticComponent<DialogHeaderProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const DialogTitle: React__default.ForwardRefExoticComponent<DialogTitleProps & React__default.RefAttributes<HTMLHeadingElement>>;
+declare const DialogDescription: React__default.ForwardRefExoticComponent<DialogDescriptionProps & React__default.RefAttributes<HTMLParagraphElement>>;
+declare const DialogFooter: React__default.ForwardRefExoticComponent<DialogFooterProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Alert Component
+ * Unified alert component for the entire Toto ecosystem
+ */
+
+interface AlertProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Alert variant */
+    variant?: 'default' | 'destructive' | 'warning' | 'success' | 'info';
+    /** Alert size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Dismissible alert */
+    dismissible?: boolean;
+    /** Callback when alert is dismissed */
+    onDismiss?: () => void;
+}
+interface AlertTitleProps extends React__default.HTMLAttributes<HTMLHeadingElement> {
+}
+interface AlertDescriptionProps extends React__default.HTMLAttributes<HTMLDivElement> {
+}
+declare const Alert: React__default.ForwardRefExoticComponent<AlertProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const AlertTitle: React__default.ForwardRefExoticComponent<AlertTitleProps & React__default.RefAttributes<HTMLHeadingElement>>;
+declare const AlertDescription: React__default.ForwardRefExoticComponent<AlertDescriptionProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Avatar Component
+ * Unified avatar component for the entire Toto ecosystem
+ */
+
+interface AvatarProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Avatar size */
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    /** Avatar variant */
+    variant?: 'circle' | 'square' | 'rounded';
+    /** Image source */
+    src?: string;
+    /** Alt text for image */
+    alt?: string;
+    /** Fallback text when no image */
+    fallback?: string;
+    /** Background color for fallback */
+    bgColor?: string;
+}
+interface AvatarImageProps extends React__default.ImgHTMLAttributes<HTMLImageElement> {
+}
+interface AvatarFallbackProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Fallback text */
+    children: React__default.ReactNode;
+    /** Avatar variant */
+    variant?: 'circle' | 'square' | 'rounded';
+    /** Background color */
+    bgColor?: string;
+}
+declare const Avatar: React__default.ForwardRefExoticComponent<AvatarProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const AvatarImage: React__default.ForwardRefExoticComponent<AvatarImageProps & React__default.RefAttributes<HTMLImageElement>>;
+declare const AvatarFallback: React__default.ForwardRefExoticComponent<AvatarFallbackProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Progress Component
+ * Unified progress component for the entire Toto ecosystem
+ */
+
+interface ProgressProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Progress value (0-100) */
+    value?: number;
+    /** Progress variant */
+    variant?: 'default' | 'success' | 'warning' | 'destructive';
+    /** Progress size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Show percentage text */
+    showValue?: boolean;
+    /** Custom label */
+    label?: string;
+    /** Indeterminate state */
+    indeterminate?: boolean;
+}
+declare const Progress: React__default.ForwardRefExoticComponent<ProgressProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Select Component
+ * Unified select component for the entire Toto ecosystem
+ */
+
+interface SelectProps extends Omit<React__default.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
+    /** Select variant */
+    variant?: 'default' | 'filled' | 'outline';
+    /** Select size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Error state */
+    error?: boolean;
+    /** Success state */
+    success?: boolean;
+    /** Disabled state */
+    disabled?: boolean;
+    /** Placeholder text */
+    placeholder?: string;
+    /** Helper text */
+    helperText?: string;
+    /** Error message */
+    errorMessage?: string;
+    /** Label */
+    label?: string;
+}
+interface SelectOptionProps extends React__default.OptionHTMLAttributes<HTMLOptionElement> {
+    /** Option value */
+    value: string;
+    /** Option label */
+    children: React__default.ReactNode;
+}
+interface SelectGroupProps extends React__default.HTMLAttributes<HTMLOptGroupElement> {
+    /** Group label */
+    label: string;
+    /** Group children */
+    children: React__default.ReactNode;
+}
+declare const Select: React__default.ForwardRefExoticComponent<SelectProps & React__default.RefAttributes<HTMLSelectElement>>;
+declare const SelectOption: React__default.ForwardRefExoticComponent<SelectOptionProps & React__default.RefAttributes<HTMLOptionElement>>;
+declare const SelectGroup: React__default.ForwardRefExoticComponent<SelectGroupProps & React__default.RefAttributes<HTMLOptGroupElement>>;
+
+/**
+ * Separator Component
+ * Unified separator component for the entire Toto ecosystem
+ */
+
+interface SeparatorProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Separator orientation */
+    orientation?: 'horizontal' | 'vertical';
+    /** Separator variant */
+    variant?: 'default' | 'thick' | 'dashed' | 'dotted';
+    /** Separator color */
+    color?: 'default' | 'muted' | 'border';
+}
+declare const Separator: React__default.ForwardRefExoticComponent<SeparatorProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
+ * Switch Component
+ * Unified switch component for the entire Toto ecosystem
+ */
+
+interface SwitchProps extends Omit<React__default.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+    /** Switch size */
+    size?: 'sm' | 'md' | 'lg';
+    /** Switch variant */
+    variant?: 'default' | 'success' | 'warning' | 'destructive';
+    /** Disabled state */
+    disabled?: boolean;
+    /** Label text */
+    label?: string;
+    /** Description text */
+    description?: string;
+}
+declare const Switch: React__default.ForwardRefExoticComponent<SwitchProps & React__default.RefAttributes<HTMLInputElement>>;
+
+/**
+ * Tabs Component
+ * Unified tabs component for the entire Toto ecosystem
+ */
+
+interface TabsProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Default active tab */
+    defaultValue?: string;
+    /** Controlled active tab */
+    value?: string;
+    /** Callback when tab changes */
+    onValueChange?: (value: string) => void;
+    /** Tabs orientation */
+    orientation?: 'horizontal' | 'vertical';
+    /** Tabs variant */
+    variant?: 'default' | 'pills' | 'underline';
+}
+interface TabsListProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** List variant */
+    variant?: 'default' | 'pills' | 'underline';
+    /** List orientation */
+    orientation?: 'horizontal' | 'vertical';
+}
+interface TabsTriggerProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
+    /** Trigger value */
+    value: string;
+    /** Trigger variant */
+    variant?: 'default' | 'pills' | 'underline';
+    /** Trigger orientation */
+    orientation?: 'horizontal' | 'vertical';
+    /** Internal props - don't use directly */
+    activeTab?: string;
+    onTabChange?: (value: string) => void;
+}
+interface TabsContentProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    /** Content value */
+    value: string;
+    /** Internal props - don't use directly */
+    activeTab?: string;
+}
+declare const Tabs: React__default.ForwardRefExoticComponent<TabsProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const TabsList: React__default.ForwardRefExoticComponent<TabsListProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const TabsTrigger: React__default.ForwardRefExoticComponent<TabsTriggerProps & React__default.RefAttributes<HTMLButtonElement>>;
+declare const TabsContent: React__default.ForwardRefExoticComponent<TabsContentProps & React__default.RefAttributes<HTMLDivElement>>;
+
+/**
  * Utility function to merge class names
  * Combines clsx and tailwind-merge for optimal class name handling
  */
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, TotoLogo, borderPresets, borders, buttonVariants, cn, colors, designTokens, semanticSpacing, shadowPresets, shadows, spacing, typography };
+export { Alert, AlertDescription, AlertTitle, Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, Input, Label, Progress, Select, SelectGroup, SelectOption, Separator, Switch, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, TotoLogo, borderPresets, borders, buttonVariants, cn, colors, designTokens, semanticSpacing, shadowPresets, shadows, spacing, typography };
 export type { BorderColor, BorderPreset, BorderRadius, BorderStyle, BorderWidth, BoxShadow, ColorScale, ColorToken, ColoredShadow, DropShadow, FontSize, FontWeight, LetterSpacing, LineHeight, SemanticSpacing, ShadowPreset, SpacingToken, TextStyle };

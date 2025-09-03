@@ -17,11 +17,9 @@ import { cssVariables as bordersCss } from './borders';
 import { cssVariables as shadowsCss } from './shadows';
 
 export const designTokens = {
-  colors: {
-    ...colorsCss,
-    ...typographyCss,
-    ...spacingCss,
-    ...bordersCss,
-    ...shadowsCss,
-  },
+  ...colorsCss,
+  ...typographyCss,
+  ...spacingCss,
+  ...bordersCss,
+  ...shadowsCss,
 } as const;

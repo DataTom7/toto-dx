@@ -156,7 +156,7 @@ const colors = {
     },
 };
 // CSS Custom Properties for runtime usage
-({
+const cssVariables$4 = {
     '--toto-primary': colors.primary.DEFAULT,
     '--toto-primary-hover': colors.primary.hover,
     '--toto-secondary': colors.secondary.DEFAULT,
@@ -171,7 +171,7 @@ const colors = {
     '--toto-success': colors.success.DEFAULT,
     '--toto-warning': colors.warning.DEFAULT,
     '--toto-info': colors.info.DEFAULT,
-});
+};
 
 /**
  * Toto Design System - Typography Tokens
@@ -322,7 +322,7 @@ const typography = {
     },
 };
 // CSS Custom Properties for runtime usage
-({
+const cssVariables$3 = {
     '--toto-font-family-sans': typography.fontFamily.sans.join(', '),
     '--toto-font-family-heading': typography.fontFamily.heading.join(', '),
     '--toto-font-family-mono': typography.fontFamily.mono.join(', '),
@@ -337,7 +337,7 @@ const typography = {
     '--toto-font-weight-regular': typography.fontWeight.regular,
     '--toto-font-weight-semibold': typography.fontWeight.semibold,
     '--toto-font-weight-bold': typography.fontWeight.bold,
-});
+};
 
 /**
  * Toto Design System - Spacing Tokens
@@ -442,14 +442,14 @@ const semanticSpacing = {
     },
 };
 // CSS Custom Properties for runtime usage
-({
+const cssVariables$2 = {
     '--toto-spacing-xs': spacing.xs,
     '--toto-spacing-sm': spacing.sm,
     '--toto-spacing-md': spacing.md,
     '--toto-spacing-lg': spacing.lg,
     '--toto-spacing-xl': spacing.xl,
     '--toto-spacing-xxs': spacing.xxs,
-});
+};
 
 /**
  * Toto Design System - Border Tokens
@@ -536,12 +536,12 @@ const borderPresets = {
     },
 };
 // CSS Custom Properties for runtime usage
-({
+const cssVariables$1 = {
     '--toto-border-radius-sm': borders.radius.sm,
     '--toto-border-radius-md': borders.radius.md,
     '--toto-border-radius-lg': borders.radius.lg,
     '--toto-border-radius-pill': borders.radius.pill,
-});
+};
 
 /**
  * Toto Design System - Shadow Tokens
@@ -612,26 +612,23 @@ const shadowPresets = {
     },
 };
 // CSS Custom Properties for runtime usage
-({
+const cssVariables = {
     '--toto-shadow-sm': shadows.box.sm,
     '--toto-shadow-md': shadows.box.md,
     '--toto-shadow-lg': shadows.box.lg,
     '--toto-shadow-xl': shadows.box.xl,
-});
+};
 
 /**
  * Toto Design System - Design Tokens
  * Central export for all design tokens
  */
-// Combined CSS variables for easy import
 const designTokens = {
-    colors: {
-        ...require('./colors').cssVariables,
-        ...require('./typography').cssVariables,
-        ...require('./spacing').cssVariables,
-        ...require('./borders').cssVariables,
-        ...require('./shadows').cssVariables,
-    },
+    ...cssVariables$4,
+    ...cssVariables$3,
+    ...cssVariables$2,
+    ...cssVariables$1,
+    ...cssVariables,
 };
 
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
@@ -3136,22 +3133,12 @@ function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
 
-const TotoLogo = ({ size = 48, color = '#FDB813', className = '', variant = 'default', alt = 'Toto Logo', }) => {
-    if (variant === 'text') {
-        return (jsxRuntime.jsx("span", { className: cn('font-extrabold tracking-tight', className), style: {
-                fontFamily: 'Raleway, Inter, Lato, Nunito, Arial, sans-serif',
-                letterSpacing: '-0.02em',
-                fontSize: size,
-                fontWeight: 800,
-                color: color,
-                textTransform: 'lowercase',
-                textShadow: '0 1px 3px rgba(0,0,0,0.15)',
-            }, "aria-label": alt, children: "toto." }));
-    }
-    if (variant === 'minimal') {
-        return (jsxRuntime.jsx("div", { className: cn('flex items-center justify-center', className), style: { width: size, height: size }, role: "img", "aria-label": alt, children: jsxRuntime.jsxs("svg", { width: size, height: size, viewBox: "0 0 100 100", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "50", cy: "30", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "35", cy: "45", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "65", cy: "45", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "50", cy: "60", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "35", cy: "75", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "65", cy: "75", r: "8", fill: color })] }) }));
-    }
-    return (jsxRuntime.jsx("div", { className: cn('flex items-center justify-center', className), style: { width: size, height: size }, role: "img", "aria-label": alt, children: jsxRuntime.jsxs("svg", { width: size, height: size, viewBox: "0 0 100 100", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "50", cy: "30", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "35", cy: "45", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "65", cy: "45", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "50", cy: "60", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "35", cy: "75", r: "8", fill: color }), jsxRuntime.jsx("circle", { cx: "65", cy: "75", r: "8", fill: color }), jsxRuntime.jsx("ellipse", { cx: "50", cy: "50", rx: "25", ry: "8", fill: color, opacity: "0.3" }), jsxRuntime.jsx("ellipse", { cx: "50", cy: "50", rx: "15", ry: "4", fill: color, opacity: "0.5" })] }) }));
+const TotoLogo = ({ size = 48, color = '#FDB813', className = '', alt = 'Toto Logo', }) => {
+    return (jsxRuntime.jsx("span", { className: cn('font-raleway font-extrabold leading-none tracking-[-0.02em] lowercase', className), style: {
+            fontSize: size,
+            color: color,
+            textShadow: '0 1px 2px rgba(0,0,0,0.12)',
+        }, "aria-label": alt, children: "toto" }));
 };
 
 // packages/react/compose-refs/src/compose-refs.tsx
@@ -3339,9 +3326,9 @@ const buttonVariants = cva('inline-flex items-center justify-center gap-2 whites
         size: 'default',
     },
 });
-const Button = React__namespace.forwardRef(({ className, variant, size, asChild = false, ...props }, ref) => {
+const Button = React__namespace.forwardRef(({ className, variant, size, asChild = false, loading = false, loadingText, children, disabled, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
-    return (jsxRuntime.jsx(Comp, { className: cn(buttonVariants({ variant, size, className })), ref: ref, ...props }));
+    return (jsxRuntime.jsxs(Comp, { className: cn(buttonVariants({ variant, size, className })), ref: ref, disabled: disabled || loading, ...props, children: [loading && (jsxRuntime.jsxs("svg", { className: "animate-spin -ml-1 mr-2 h-4 w-4", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", "aria-hidden": "true", children: [jsxRuntime.jsx("circle", { className: "opacity-25", cx: "12", cy: "12", r: "10", stroke: "currentColor", strokeWidth: "4" }), jsxRuntime.jsx("path", { className: "opacity-75", fill: "currentColor", d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" })] })), loading ? (loadingText || 'Loading...') : children] }));
 });
 Button.displayName = 'Button';
 
@@ -3358,6 +3345,502 @@ CardContent.displayName = 'CardContent';
 const CardFooter = React__namespace.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ref: ref, className: cn('flex items-center p-6 pt-0', className), ...props })));
 CardFooter.displayName = 'CardFooter';
 
+const Input = React.forwardRef(({ className, variant = 'default', size = 'md', error, success, disabled, helperText, errorMessage, label, id, ...props }, ref) => {
+    const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+    const hasError = error || !!errorMessage;
+    const displayText = hasError ? errorMessage : helperText;
+    return (jsxRuntime.jsxs("div", { className: "w-full", children: [label && (jsxRuntime.jsx("label", { htmlFor: inputId, className: "block text-sm font-medium text-foreground mb-1", children: label })), jsxRuntime.jsx("input", { id: inputId, className: cn(
+                // Base styles
+                'flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', 
+                // Variants
+                {
+                    'border-input bg-background': variant === 'default',
+                    'border-transparent bg-muted': variant === 'filled',
+                    'border-2 border-input bg-transparent': variant === 'outline',
+                }, 
+                // Sizes
+                {
+                    'h-8 px-2 text-xs': size === 'sm',
+                    'h-10 px-3 text-sm': size === 'md',
+                    'h-12 px-4 text-base': size === 'lg',
+                }, 
+                // States
+                {
+                    'border-destructive focus-visible:ring-destructive': hasError,
+                    'border-green-500 focus-visible:ring-green-500': success,
+                    'opacity-50 cursor-not-allowed': disabled,
+                }, className), ref: ref, disabled: disabled, ...props }), displayText && (jsxRuntime.jsx("p", { className: cn('mt-1 text-xs', hasError ? 'text-destructive' : 'text-muted-foreground'), children: displayText }))] }));
+});
+Input.displayName = 'Input';
+
+const Badge = React.forwardRef(({ className, variant = 'default', size = 'md', dismissible = false, onDismiss, children, ...props }, ref) => {
+    const [isDismissed, setIsDismissed] = React.useState(false);
+    const handleDismiss = () => {
+        setIsDismissed(true);
+        setTimeout(() => onDismiss?.(), 200); // Allow animation to complete
+    };
+    if (isDismissed) {
+        return null;
+    }
+    return (jsxRuntime.jsxs("div", { ref: ref, className: cn(
+        // Base styles
+        'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2', 
+        // Variants
+        {
+            'border-transparent bg-primary text-primary-foreground hover:bg-primary/80': variant === 'default',
+            'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80': variant === 'secondary',
+            'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80': variant === 'destructive',
+            'text-foreground border-border': variant === 'outline',
+            'border-transparent bg-green-500 text-white hover:bg-green-600': variant === 'success',
+            'border-transparent bg-yellow-500 text-white hover:bg-yellow-600': variant === 'warning',
+            'border-transparent bg-blue-500 text-white hover:bg-blue-600': variant === 'info',
+        }, 
+        // Sizes
+        {
+            'px-1.5 py-0.5 text-xs': size === 'sm',
+            'px-2.5 py-0.5 text-xs': size === 'md',
+            'px-3 py-1 text-sm': size === 'lg',
+        }, className), ...props, children: [children, dismissible && (jsxRuntime.jsx("button", { onClick: handleDismiss, className: "ml-1 inline-flex items-center justify-center rounded-full hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors duration-150", "aria-label": "Dismiss", children: jsxRuntime.jsx("svg", { className: "h-3 w-3", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) }) }))] }));
+});
+Badge.displayName = 'Badge';
+
+const Label = React.forwardRef(({ className, variant = 'default', size = 'md', children, ...props }, ref) => {
+    return (jsxRuntime.jsx("label", { ref: ref, className: cn(
+        // Base styles
+        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', 
+        // Variants
+        {
+            'text-foreground': variant === 'default',
+            'text-foreground after:content-["*"] after:ml-0.5 after:text-destructive': variant === 'required',
+            'text-muted-foreground after:content-["(optional)"] after:ml-0.5 after:text-muted-foreground': variant === 'optional',
+        }, 
+        // Sizes
+        {
+            'text-xs': size === 'sm',
+            'text-sm': size === 'md',
+            'text-base': size === 'lg',
+        }, className), ...props, children: children }));
+});
+Label.displayName = 'Label';
+
+const Textarea = React.forwardRef(({ className, variant = 'default', size = 'md', error, success, disabled, resize = 'vertical', helperText, errorMessage, label, showCharacterCount = false, maxLength, id, value, ...props }, ref) => {
+    const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+    const hasError = error || !!errorMessage;
+    const displayText = hasError ? errorMessage : helperText;
+    const currentLength = typeof value === 'string' ? value.length : 0;
+    const isNearLimit = maxLength && currentLength > maxLength * 0.8;
+    return (jsxRuntime.jsxs("div", { className: "w-full", children: [label && (jsxRuntime.jsx("label", { htmlFor: textareaId, className: "block text-sm font-medium text-foreground mb-1", children: label })), jsxRuntime.jsx("textarea", { id: textareaId, className: cn(
+                // Base styles
+                'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', 
+                // Variants
+                {
+                    'border-input bg-background': variant === 'default',
+                    'border-transparent bg-muted': variant === 'filled',
+                    'border-2 border-input bg-transparent': variant === 'outline',
+                }, 
+                // Sizes
+                {
+                    'min-h-[60px] px-2 py-1.5 text-xs': size === 'sm',
+                    'min-h-[80px] px-3 py-2 text-sm': size === 'md',
+                    'min-h-[100px] px-4 py-3 text-base': size === 'lg',
+                }, 
+                // Resize behavior
+                {
+                    'resize-none': resize === 'none',
+                    'resize-y': resize === 'vertical',
+                    'resize-x': resize === 'horizontal',
+                    'resize': resize === 'both',
+                }, 
+                // States
+                {
+                    'border-destructive focus-visible:ring-destructive': hasError,
+                    'border-green-500 focus-visible:ring-green-500': success,
+                    'opacity-50 cursor-not-allowed': disabled,
+                }, className), ref: ref, disabled: disabled, value: value, maxLength: maxLength, ...props }), (displayText || showCharacterCount) && (jsxRuntime.jsxs("div", { className: "flex justify-between items-center mt-1", children: [displayText && (jsxRuntime.jsx("p", { className: cn('text-xs', hasError ? 'text-destructive' : 'text-muted-foreground'), children: displayText })), showCharacterCount && maxLength && (jsxRuntime.jsxs("p", { className: cn('text-xs', isNearLimit ? 'text-warning' : 'text-muted-foreground'), children: [currentLength, "/", maxLength] }))] }))] }));
+});
+Textarea.displayName = 'Textarea';
+
+// Dialog Root
+const Dialog = ({ open = false, onOpenChange, children, className, ...props }) => {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const [isAnimating, setIsAnimating] = React.useState(false);
+    React.useEffect(() => {
+        if (open) {
+            setIsVisible(true);
+            setIsAnimating(true);
+            // Prevent body scroll when dialog is open
+            document.body.style.overflow = 'hidden';
+        }
+        else {
+            setIsAnimating(false);
+            // Restore body scroll
+            document.body.style.overflow = 'unset';
+            // Hide after animation completes
+            const timer = setTimeout(() => setIsVisible(false), 200);
+            return () => clearTimeout(timer);
+        }
+    }, [open]);
+    // Handle escape key
+    React.useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === 'Escape' && open) {
+                onOpenChange?.(false);
+            }
+        };
+        if (open) {
+            document.addEventListener('keydown', handleEscape);
+            return () => document.removeEventListener('keydown', handleEscape);
+        }
+    }, [open, onOpenChange]);
+    if (!isVisible)
+        return null;
+    return (jsxRuntime.jsxs("div", { className: cn('fixed inset-0 z-50 flex items-center justify-center', className), ...props, children: [jsxRuntime.jsx("div", { className: cn('fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-200', isAnimating ? 'opacity-100' : 'opacity-0'), onClick: () => onOpenChange?.(false) }), children] }));
+};
+// Dialog Content
+const DialogContent = React.forwardRef(({ className, variant = 'default', size = 'md', children, ...props }, ref) => {
+    const [isAnimating, setIsAnimating] = React.useState(false);
+    React.useEffect(() => {
+        setIsAnimating(true);
+    }, []);
+    return (jsxRuntime.jsx("div", { ref: ref, className: cn('relative bg-background border border-border rounded-lg shadow-lg transition-all duration-200', 
+        // Variants
+        {
+            'mx-4 my-8': variant === 'default',
+            'mx-auto my-auto': variant === 'centered',
+            'w-full h-full rounded-none': variant === 'fullscreen',
+        }, 
+        // Sizes
+        {
+            'max-w-sm': size === 'sm',
+            'max-w-md': size === 'md',
+            'max-w-lg': size === 'lg',
+            'max-w-xl': size === 'xl',
+        }, 
+        // Animation
+        isAnimating ? 'opacity-100 scale-100' : 'opacity-0 scale-95', className), ...props, children: children }));
+});
+DialogContent.displayName = 'DialogContent';
+// Dialog Header
+const DialogHeader = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ref: ref, className: cn('flex flex-col space-y-1.5 p-6 pb-4', className), ...props })));
+DialogHeader.displayName = 'DialogHeader';
+// Dialog Title
+const DialogTitle = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("h2", { ref: ref, className: cn('text-lg font-semibold leading-none tracking-tight', className), ...props })));
+DialogTitle.displayName = 'DialogTitle';
+// Dialog Description
+const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("p", { ref: ref, className: cn('text-sm text-muted-foreground', className), ...props })));
+DialogDescription.displayName = 'DialogDescription';
+// Dialog Footer
+const DialogFooter = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ref: ref, className: cn('flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 p-6 pt-4', className), ...props })));
+DialogFooter.displayName = 'DialogFooter';
+
+// Alert Root
+const Alert = React.forwardRef(({ className, variant = 'default', size = 'md', dismissible = false, onDismiss, children, ...props }, ref) => {
+    const [isDismissed, setIsDismissed] = React.useState(false);
+    const handleDismiss = () => {
+        setIsDismissed(true);
+        setTimeout(() => onDismiss?.(), 200); // Allow animation to complete
+    };
+    if (isDismissed) {
+        return null;
+    }
+    return (jsxRuntime.jsxs("div", { ref: ref, role: "alert", className: cn(
+        // Base styles
+        'relative w-full rounded-lg border p-4 transition-all duration-200', 
+        // Variants
+        {
+            'bg-background text-foreground border-border': variant === 'default',
+            'border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive': variant === 'destructive',
+            'border-yellow-500/50 text-yellow-800 bg-yellow-50 dark:border-yellow-500 dark:text-yellow-200 dark:bg-yellow-900/20 [&>svg]:text-yellow-600': variant === 'warning',
+            'border-green-500/50 text-green-800 bg-green-50 dark:border-green-500 dark:text-green-200 dark:bg-green-900/20 [&>svg]:text-green-600': variant === 'success',
+            'border-blue-500/50 text-blue-800 bg-blue-50 dark:border-blue-500 dark:text-blue-200 dark:bg-blue-900/20 [&>svg]:text-blue-600': variant === 'info',
+        }, 
+        // Sizes
+        {
+            'p-3 text-sm': size === 'sm',
+            'p-4 text-sm': size === 'md',
+            'p-6 text-base': size === 'lg',
+        }, className), ...props, children: [children, dismissible && (jsxRuntime.jsx("button", { onClick: handleDismiss, className: "absolute top-2 right-2 inline-flex items-center justify-center rounded-full hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors duration-150", "aria-label": "Dismiss alert", children: jsxRuntime.jsx("svg", { className: "h-4 w-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) }) }))] }));
+});
+Alert.displayName = 'Alert';
+// Alert Title
+const AlertTitle = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("h5", { ref: ref, className: cn('mb-1 font-medium leading-none tracking-tight', className), ...props })));
+AlertTitle.displayName = 'AlertTitle';
+// Alert Description
+const AlertDescription = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ref: ref, className: cn('text-sm [&_p]:leading-relaxed', className), ...props })));
+AlertDescription.displayName = 'AlertDescription';
+
+// Avatar Root
+const Avatar = React.forwardRef(({ className, size = 'md', variant = 'circle', src, alt, fallback, bgColor, ...props }, ref) => {
+    const [imageError, setImageError] = React.useState(false);
+    const [imageLoaded, setImageLoaded] = React.useState(false);
+    const handleImageError = () => {
+        setImageError(true);
+    };
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
+    // Reset states when src changes
+    React.useEffect(() => {
+        setImageError(false);
+        setImageLoaded(false);
+    }, [src]);
+    const showFallback = !src || imageError || (src && !imageLoaded);
+    return (jsxRuntime.jsxs("div", { ref: ref, className: cn(
+        // Base styles
+        'relative flex shrink-0 overflow-hidden bg-muted', 
+        // Variants
+        {
+            'rounded-full': variant === 'circle',
+            'rounded-none': variant === 'square',
+            'rounded-md': variant === 'rounded',
+        }, 
+        // Sizes
+        {
+            'h-6 w-6': size === 'xs',
+            'h-8 w-8': size === 'sm',
+            'h-10 w-10': size === 'md',
+            'h-12 w-12': size === 'lg',
+            'h-16 w-16': size === 'xl',
+        }, className), ...props, children: [src && !imageError && (jsxRuntime.jsx(AvatarImage, { src: src, alt: alt, onError: handleImageError, onLoad: handleImageLoad })), showFallback && fallback && (jsxRuntime.jsx(AvatarFallback, { variant: variant, bgColor: bgColor, children: fallback }))] }));
+});
+Avatar.displayName = 'Avatar';
+// Avatar Image
+const AvatarImage = React.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("img", { ref: ref, className: cn('aspect-square h-full w-full object-cover', className), ...props })));
+AvatarImage.displayName = 'AvatarImage';
+// Avatar Fallback
+const AvatarFallback = React.forwardRef(({ className, children, variant = 'circle', bgColor, ...props }, ref) => (jsxRuntime.jsx("div", { ref: ref, className: cn('flex h-full w-full items-center justify-center text-muted-foreground font-medium', 
+    // Variants
+    {
+        'rounded-full': variant === 'circle',
+        'rounded-none': variant === 'square',
+        'rounded-md': variant === 'rounded',
+    }, 
+    // Background
+    bgColor ? '' : 'bg-muted', className), style: bgColor ? { backgroundColor: bgColor } : undefined, ...props, children: children })));
+AvatarFallback.displayName = 'AvatarFallback';
+
+const Progress = React.forwardRef(({ className, value = 0, variant = 'default', size = 'md', showValue = false, label, indeterminate = false, ...props }, ref) => {
+    const clampedValue = Math.min(Math.max(value, 0), 100);
+    return (jsxRuntime.jsxs("div", { className: cn('w-full', className), ...props, children: [(label || showValue) && (jsxRuntime.jsxs("div", { className: "flex justify-between items-center mb-2", children: [label && (jsxRuntime.jsx("span", { className: "text-sm font-medium text-foreground", children: label })), showValue && !indeterminate && (jsxRuntime.jsxs("span", { className: "text-sm text-muted-foreground", children: [Math.round(clampedValue), "%"] }))] })), jsxRuntime.jsx("div", { ref: ref, className: cn(
+                // Base styles
+                'relative h-2 w-full overflow-hidden rounded-full bg-secondary', 
+                // Sizes
+                {
+                    'h-1': size === 'sm',
+                    'h-2': size === 'md',
+                    'h-3': size === 'lg',
+                }), children: jsxRuntime.jsx("div", { className: cn(
+                    // Base styles
+                    'h-full flex-1 transition-all duration-300 ease-in-out', 
+                    // Variants
+                    {
+                        'bg-primary': variant === 'default' && !indeterminate,
+                        'bg-green-500': variant === 'success' && !indeterminate,
+                        'bg-yellow-500': variant === 'warning' && !indeterminate,
+                        'bg-destructive': variant === 'destructive' && !indeterminate,
+                    }, 
+                    // Indeterminate animation
+                    indeterminate && 'bg-primary animate-pulse'), style: {
+                        width: indeterminate ? '100%' : `${clampedValue}%`,
+                        transform: indeterminate ? 'translateX(-100%)' : 'translateX(0)',
+                        animation: indeterminate ? 'progress-indeterminate 1.5s ease-in-out infinite' : undefined,
+                    } }) })] }));
+});
+Progress.displayName = 'Progress';
+
+// Select Root
+const Select = React.forwardRef(({ className, variant = 'default', size = 'md', error, success, disabled, placeholder, helperText, errorMessage, label, id, children, ...props }, ref) => {
+    const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
+    const hasError = error || !!errorMessage;
+    const displayText = hasError ? errorMessage : helperText;
+    return (jsxRuntime.jsxs("div", { className: "w-full", children: [label && (jsxRuntime.jsx("label", { htmlFor: selectId, className: "block text-sm font-medium text-foreground mb-1", children: label })), jsxRuntime.jsxs("select", { id: selectId, className: cn(
+                // Base styles
+                'flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', 
+                // Variants
+                {
+                    'border-input bg-background': variant === 'default',
+                    'border-transparent bg-muted': variant === 'filled',
+                    'border-2 border-input bg-transparent': variant === 'outline',
+                }, 
+                // Sizes
+                {
+                    'h-8 px-2 text-xs': size === 'sm',
+                    'h-10 px-3 text-sm': size === 'md',
+                    'h-12 px-4 text-base': size === 'lg',
+                }, 
+                // States
+                {
+                    'border-destructive focus:ring-destructive': hasError,
+                    'border-green-500 focus:ring-green-500': success,
+                    'opacity-50 cursor-not-allowed': disabled,
+                }, className), ref: ref, disabled: disabled, ...props, children: [placeholder && (jsxRuntime.jsx("option", { value: "", disabled: true, children: placeholder })), children] }), displayText && (jsxRuntime.jsx("p", { className: cn('mt-1 text-xs', hasError ? 'text-destructive' : 'text-muted-foreground'), children: displayText }))] }));
+});
+Select.displayName = 'Select';
+// Select Option
+const SelectOption = React.forwardRef(({ className, value, children, ...props }, ref) => (jsxRuntime.jsx("option", { ref: ref, className: cn('text-foreground', className), value: value, ...props, children: children })));
+SelectOption.displayName = 'SelectOption';
+// Select Group
+const SelectGroup = React.forwardRef(({ className, label, children, ...props }, ref) => (jsxRuntime.jsx("optgroup", { ref: ref, className: cn('text-muted-foreground', className), label: label, ...props, children: children })));
+SelectGroup.displayName = 'SelectGroup';
+
+const Separator = React.forwardRef(({ className, orientation = 'horizontal', variant = 'default', color = 'default', ...props }, ref) => {
+    return (jsxRuntime.jsx("div", { ref: ref, className: cn(
+        // Base styles
+        'shrink-0 bg-border', 
+        // Orientation
+        {
+            'h-[1px] w-full': orientation === 'horizontal',
+            'h-full w-[1px]': orientation === 'vertical',
+        }, 
+        // Variants
+        {
+            'bg-border': variant === 'default',
+            'h-[2px]': variant === 'thick' && orientation === 'horizontal',
+            'w-[2px]': variant === 'thick' && orientation === 'vertical',
+            'border-dashed border-t': variant === 'dashed' && orientation === 'horizontal',
+            'border-dashed border-l': variant === 'dashed' && orientation === 'vertical',
+            'border-dotted border-t': variant === 'dotted' && orientation === 'horizontal',
+            'border-dotted border-l': variant === 'dotted' && orientation === 'vertical',
+        }, 
+        // Colors
+        {
+            'bg-border': color === 'default' || color === 'border',
+            'bg-muted': color === 'muted',
+        }, className), ...props }));
+});
+Separator.displayName = 'Separator';
+
+const Switch = React.forwardRef(({ className, size = 'md', variant = 'default', disabled = false, label, description, id, checked, defaultChecked, ...props }, ref) => {
+    const switchId = id || `switch-${Math.random().toString(36).substr(2, 9)}`;
+    const [isChecked, setIsChecked] = React.useState(checked ?? defaultChecked ?? false);
+    // Update internal state when controlled checked prop changes
+    React.useEffect(() => {
+        if (checked !== undefined) {
+            setIsChecked(checked);
+        }
+    }, [checked]);
+    const handleChange = (e) => {
+        if (checked === undefined) {
+            setIsChecked(e.target.checked);
+        }
+        props.onChange?.(e);
+    };
+    return (jsxRuntime.jsxs("div", { className: "flex items-center space-x-3", children: [jsxRuntime.jsxs("div", { className: "relative", children: [jsxRuntime.jsx("input", { ref: ref, type: "checkbox", id: switchId, className: "sr-only", disabled: disabled, checked: checked, defaultChecked: defaultChecked, onChange: handleChange, ...props }), jsxRuntime.jsx("label", { htmlFor: switchId, className: cn(
+                        // Base styles
+                        'relative inline-flex cursor-pointer items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', 
+                        // Sizes
+                        {
+                            'h-4 w-7': size === 'sm',
+                            'h-5 w-9': size === 'md',
+                            'h-6 w-11': size === 'lg',
+                        }, 
+                        // Base background for all variants
+                        'bg-input', 
+                        // Checked states
+                        {
+                            'bg-primary': isChecked && variant === 'default',
+                            'bg-green-500': isChecked && variant === 'success',
+                            'bg-yellow-500': isChecked && variant === 'warning',
+                            'bg-destructive': isChecked && variant === 'destructive',
+                        }, 
+                        // Disabled state
+                        disabled && 'opacity-50 cursor-not-allowed', className), children: jsxRuntime.jsx("span", { className: cn(
+                            // Base styles
+                            'pointer-events-none block rounded-full bg-background shadow-lg ring-0 transition-all duration-200 ease-in-out', 
+                            // Sizes and positions
+                            {
+                                'h-3 w-3 translate-x-0.5': size === 'sm' && !isChecked,
+                                'h-3 w-3 translate-x-3': size === 'sm' && isChecked,
+                                'h-4 w-4 translate-x-0.5': size === 'md' && !isChecked,
+                                'h-4 w-4 translate-x-4': size === 'md' && isChecked,
+                                'h-5 w-5 translate-x-0.5': size === 'lg' && !isChecked,
+                                'h-5 w-5 translate-x-5': size === 'lg' && isChecked,
+                            }) }) })] }), (label || description) && (jsxRuntime.jsxs("div", { className: "flex flex-col", children: [label && (jsxRuntime.jsx("label", { htmlFor: switchId, className: cn('text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', disabled && 'opacity-50'), children: label })), description && (jsxRuntime.jsx("p", { className: cn('text-xs text-muted-foreground mt-1', disabled && 'opacity-50'), children: description }))] }))] }));
+});
+Switch.displayName = 'Switch';
+
+// Tabs Root
+const Tabs = React.forwardRef(({ className, defaultValue, value, onValueChange, orientation = 'horizontal', variant = 'default', children, ...props }, ref) => {
+    const [activeTab, setActiveTab] = React.useState(value || defaultValue || '');
+    const handleTabChange = (newValue) => {
+        if (value === undefined) {
+            setActiveTab(newValue);
+        }
+        onValueChange?.(newValue);
+    };
+    return (jsxRuntime.jsx("div", { ref: ref, className: cn('w-full', orientation === 'vertical' && 'flex', className), ...props, children: React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child, {
+                    activeTab: value || activeTab,
+                    onTabChange: handleTabChange,
+                    orientation,
+                    variant,
+                });
+            }
+            return child;
+        }) }));
+});
+Tabs.displayName = 'Tabs';
+// Tabs List
+const TabsList = React.forwardRef(({ className, variant = 'default', orientation = 'horizontal', ...props }, ref) => {
+    return (jsxRuntime.jsx("div", { ref: ref, className: cn(
+        // Base styles
+        'inline-flex items-center justify-center', 
+        // Variants
+        {
+            'h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground': variant === 'default',
+            'h-10 items-center justify-center rounded-full bg-muted p-1 text-muted-foreground': variant === 'pills',
+            'h-10 items-center justify-start border-b border-border bg-transparent p-0 text-muted-foreground': variant === 'underline',
+        }, 
+        // Orientation
+        {
+            'flex-row': orientation === 'horizontal',
+            'flex-col h-auto w-full': orientation === 'vertical',
+        }, className), ...props }));
+});
+TabsList.displayName = 'TabsList';
+// Tabs Trigger
+const TabsTrigger = React.forwardRef(({ className, value, variant = 'default', orientation = 'horizontal', activeTab, onTabChange, onClick, ...props }, ref) => {
+    const isActive = activeTab === value;
+    const handleClick = (e) => {
+        onTabChange?.(value);
+        onClick?.(e);
+    };
+    return (jsxRuntime.jsx("button", { ref: ref, className: cn(
+        // Base styles
+        'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50', 
+        // Active states
+        {
+            'bg-background text-foreground shadow-sm': isActive && variant === 'default',
+            'bg-background text-foreground shadow-sm rounded-full': isActive && variant === 'pills',
+            'bg-transparent text-foreground border-b-2 border-primary rounded-none': isActive && variant === 'underline',
+        }, 
+        // Inactive states
+        {
+            'hover:bg-background/50': !isActive && variant === 'default',
+            'hover:bg-background/50 rounded-full': !isActive && variant === 'pills',
+            'hover:bg-transparent hover:text-foreground rounded-none': !isActive && variant === 'underline',
+        }, 
+        // Orientation
+        {
+            'w-full': orientation === 'vertical',
+        }, className), onClick: handleClick, ...props }));
+});
+TabsTrigger.displayName = 'TabsTrigger';
+// Tabs Content
+const TabsContent = React.forwardRef(({ className, value, activeTab, children, ...props }, ref) => {
+    const isActive = activeTab === value;
+    return (jsxRuntime.jsx("div", { ref: ref, className: cn('mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200', isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none absolute', className), ...props, children: children }));
+});
+TabsContent.displayName = 'TabsContent';
+
+exports.Alert = Alert;
+exports.AlertDescription = AlertDescription;
+exports.AlertTitle = AlertTitle;
+exports.Avatar = Avatar;
+exports.AvatarFallback = AvatarFallback;
+exports.AvatarImage = AvatarImage;
+exports.Badge = Badge;
 exports.Button = Button;
 exports.Card = Card;
 exports.CardContent = CardContent;
@@ -3365,6 +3848,25 @@ exports.CardDescription = CardDescription;
 exports.CardFooter = CardFooter;
 exports.CardHeader = CardHeader;
 exports.CardTitle = CardTitle;
+exports.Dialog = Dialog;
+exports.DialogContent = DialogContent;
+exports.DialogDescription = DialogDescription;
+exports.DialogFooter = DialogFooter;
+exports.DialogHeader = DialogHeader;
+exports.DialogTitle = DialogTitle;
+exports.Input = Input;
+exports.Label = Label;
+exports.Progress = Progress;
+exports.Select = Select;
+exports.SelectGroup = SelectGroup;
+exports.SelectOption = SelectOption;
+exports.Separator = Separator;
+exports.Switch = Switch;
+exports.Tabs = Tabs;
+exports.TabsContent = TabsContent;
+exports.TabsList = TabsList;
+exports.TabsTrigger = TabsTrigger;
+exports.Textarea = Textarea;
 exports.TotoLogo = TotoLogo;
 exports.borderPresets = borderPresets;
 exports.borders = borders;

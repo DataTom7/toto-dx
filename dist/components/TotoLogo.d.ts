@@ -10,8 +10,6 @@ export interface TotoLogoProps {
     color?: string;
     /** Additional CSS classes */
     className?: string;
-    /** Logo variant */
-    variant?: 'default' | 'minimal' | 'text';
     /** Alt text for accessibility */
     alt?: string;
 }
